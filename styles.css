@@ -1,0 +1,35 @@
+*{margin: 0;padding: 0;}
+body{
+    background-color: #F3F5FC;
+}
+
+.pg-inicial{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30vh;
+
+} 
+.btn{
+    width: 317px;
+    height: 90px;
+    padding: 24px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    margin: 5px;
+
+
+}
+
+.iniciar{
+    background-color: #0A3871;
+    color:#F3F5FC ;
+}
+
+.add_palavra{
+    background-color: transparent;
+    color:#0A3871;
+   
+
+}
