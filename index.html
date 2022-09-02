@@ -1,18 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
     <title>Jogo da Forca</title>
 </head>
-<body>
-    <header><div class="logo"><img src="./assets//alura.svg" alt=""></div></header>
-    <div class="pg-inicial">
-        <button class="btn iniciar">Começar Jogo</button>
-        <button class="btn add_palavra">Adicionar Nova Palavra</button>
-    </div>
 
+<body>
+    <!-- CABEÇALHO -->
+    <header> 
+        <div id="div-cabecalho">
+            <img src="assets/alura.svg" alt="Logo Alura, Letra A" height="50">
+        </div>
+    </header>
+
+
+
+    <!-- CONTEÚDO -->
+    <main>
+        <div id="div-main">
+
+
+            <!-- INICIAL -->  
+            <section class="visivel" id="sec-home"> <!-- SEÇÃO HOME-->
+                <button onclick="loadGame()">Novo Jogo</button>
+                <button onclick="loadNewWord()">Adicionar Palavra</button>
+            </section> 
+
+            <section class="invisivel" id="sec-game"> <!-- SEÇÃO GAME-->
+                <section id="area-tabuleiro">
+                    <canvas height="200" width="400" id="desenho-forca" class="invisivel">
+                        
+                    </canvas>
+                </section>
+
+                <div id="container-PalavraSecreta">
+                </div>
+                
+                <div id="container-LetrasErradas" class="invisivel">
+                    <p>Letras erradas</p>
+                </div>
+
+                <div class="invisivel" id="aviso-LetraRepetida">
+                    <p>Você já usou essa letra!</p>
+                </div>
+
+
+                <div id="c-botoes-start" class="visivel">
+                    <button onclick="estructureGame()">Começar</button>
+                    <button onclick="loadHome()">Voltar</button>
+                </div>
+
+                <div id="c-botoes-game" class="invisivel">
+                    <button onclick="estructureGame()">Reiniciar Jogo</button>
+                    <button onclick="loadHome()">Desistir</button>
+                </div>
+                
+
+                <div id="popup-container">
+                    <div id="popup-conteudo">
+                      <h2 id="advice"></h2>
+                      <button onclick="loadHome()">Jogar novamente</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="invisivel" id="sec-newword"> <!-- NOVA PALAVRA-->
+                <input type="text" name="palavra-add" id="umaNovaPalavra" placeholder="Digite uma palavra" maxlength="10">
+                
+                <p id="aviso-restricao-newword">⚠ Maximo de 10 letras, A-Z</p>
+                
+                <hr>
+                <div id="c-botoes-newword">
+                    <button onclick="loadHome()">Voltar</button>
+                    <button onclick="validateNewWord()">Salvar</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+
+    <script src="script-home.js"></script>
+    <script src="script-modulos.js"></script>
+    <script src="script-canvas.js"></script>
+    <script src="script-game.js"></script>
+    
 </body>
 </html>
